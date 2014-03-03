@@ -1,10 +1,10 @@
-JAVASRC		= ConsoleFlood.java Board.java
+JAVASRC		= Flood.java Game.java Board.java UI.java
 SOURCES 	= ${JAVASRC} Makefile
-MAINCLASS	= ConsoleFlood
+MAINCLASS	= Flood
 CLASSES		= ${patsubst %.java, %.class, ${JAVASRC}}
-INNCLASSES	= Board\$$Row.class Board\$$Index.class 
+INNCLASSES	= Board\$$Node.class UI\$$Button.class
 JARCLASSES 	= ${CLASSES} ${INNCLASSES}
-JARFILE		= ConsoleFlood
+JARFILE		= Flood
 
 all : ${JARFILE}
 
@@ -17,7 +17,7 @@ ${JARFILE} : ${CLASSES}
 %.class : %.java
 	javac -Xlint $<
 clean :
-	- rm ${JARCLASSES} Manifest
+	- rm *.class Manifest
 
 spotless : clean
 	- rm ${JARFILE}
