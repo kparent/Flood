@@ -1,0 +1,2 @@
+Avg Draw Time: 6.649120795454546E-4
+Avg Update Time: 7.229123255813954E-5

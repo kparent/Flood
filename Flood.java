@@ -1,9 +1,13 @@
 import javax.swing.JFrame;
+import java.awt.event.WindowEvent;
 
 public class Flood extends JFrame {
 
-	public Flood() {
-        Game game = new Game(14, 14, 32);
+    Game  game;
+
+	public Flood()
+    {
+        game = new Game(14, 14, 32);
         add(game);
         setTitle("Space Adventure");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -12,8 +16,17 @@ public class Flood extends JFrame {
         setVisible(true);
         setResizable(false);
     }
+
+    public void processWindowEvent(WindowEvent e)
+    {
+        if(e.getID() == WindowEvent.WINDOW_CLOSING) {
+            game.printMetrics();
+            System.exit(0);
+        }
+    }
 	
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         new Flood();
     }
 }        
